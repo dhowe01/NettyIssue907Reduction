@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -90,11 +91,11 @@ public class Responder {
         @Override
         public void run() {
 
-            URI x;
+            URL x;
             try {
-                x = new URI("Hello World");
+                x = new URL("http://http://i.cdn.turner.com/cnn/.e/img/3.0/global/header/hdr-main.gif");
 
-                HttpURLConnection connection = (HttpURLConnection) x.toURL().openConnection();
+                HttpURLConnection connection = (HttpURLConnection) x.openConnection();
 
                 StringBuffer strBuff = new StringBuffer();
                 int i = 1;
@@ -127,9 +128,6 @@ public class Responder {
                 socket.getOutputStream().flush();
                 socket.close();
                 connection.disconnect();
-            } catch (URISyntaxException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
