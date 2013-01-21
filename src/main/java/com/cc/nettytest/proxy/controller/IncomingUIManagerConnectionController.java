@@ -48,7 +48,7 @@ public class IncomingUIManagerConnectionController {
 					pipeline.addLast("lengthEncoder", new CCLengthFieldPrepender(SIZE_OF_INT));
 					pipeline.addLast("jsonDecoder", new JsonDecoder());
 					pipeline.addLast("jsonEncoder", new JsonEncoder());
-					pipeline.addLast("equatorUIManagerhandler",
+					pipeline.addLast("connectionHandler",
 							new IncomingUIManagerConnectionHandler(
 									IncomingUIManagerConnectionController.this));
 				}

@@ -15,13 +15,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ServerManager {
 	
-
-	private static final String MESSAGE_TYPE_REQUEST_UI_CONNECTION = "requestUIConnection";
-	   private static final String MESSAGE_TYPE_REQUEST_HTTP_DATA = "requestHTTPData";
-
-	
-	public static final String UIMANAGER_LISTENER_PORT = "1776";        //tell equator which port to send the  connection to.
-
 	
 	private List<ConnectionReflector> waitingClientConnections;
     private Map<String,ConnectionReflector> waitingHTTPConnections; //key=uri, value = reflector.
@@ -84,15 +77,15 @@ public class ServerManager {
 
     }
 
-	public final void removeConnection(final ConnectionReflector clareLinkConnectionReflector) {
-		if (! this.waitingClientConnections.remove(clareLinkConnectionReflector) ){
-		    if ( ! this.establishedConnections.remove(clareLinkConnectionReflector) ){
+	public final void removeConnection(final ConnectionReflector connectionReflector) {
+		if (! this.waitingClientConnections.remove(connectionReflector) ){
+		    if ( ! this.establishedConnections.remove(connectionReflector) ){
 		        if ( this.waitingHTTPConnections != null && this.waitingHTTPConnections.size() > 0){
 		            Iterator<Entry<String, ConnectionReflector>> entries = waitingHTTPConnections.entrySet().iterator();
 		            Entry<String, ConnectionReflector> entry = null;
 		            while (entries.hasNext()){
 		                entry = entries.next();
-		                if ( clareLinkConnectionReflector == entry.getValue()){
+		                if ( connectionReflector == entry.getValue()){
 		                    entries.remove();
 		                    break;
 		                }
@@ -100,7 +93,7 @@ public class ServerManager {
 		         }
 		    }
 		}
-		clareLinkConnectionReflector.stop();
+		connectionReflector.stop();
 	}
 
 

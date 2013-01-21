@@ -83,9 +83,6 @@ public class ClientHTTPConnectionController {
     }
 
 
-    //public static final String HTTP_DATE_FORMAT = "EEE, dd MMM yyyy HH:mm:ss zzz";
-    //public static final String HTTP_DATE_GMT_TIMEZONE = "GMT";
-
     public boolean establishHTTPConnection( String uri, ChannelHandlerContext ctx) {
         boolean retVal = false;
         final ServerManager manager = this.parent.getServerManager();
