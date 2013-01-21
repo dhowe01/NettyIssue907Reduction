@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <chmod file="/Users/dan/Development/subversion/equatorTrunk/server/clarelink_server/standalone/target/classes/run.sh" perm="755"/>
+</target>
+</project>
