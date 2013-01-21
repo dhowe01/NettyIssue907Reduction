@@ -93,7 +93,7 @@ public class Responder {
 
             URL x;
             try {
-                x = new URL("http://http://i.cdn.turner.com/cnn/.e/img/3.0/global/header/hdr-main.gif");
+                x = new URL("http://i.cdn.turner.com/cnn/.e/img/3.0/global/header/hdr-main.gif");
 
                 HttpURLConnection connection = (HttpURLConnection) x.openConnection();
 
